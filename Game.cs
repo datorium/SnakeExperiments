@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SnakeExperiments
 {
-    public partial class Game : Form
+    public partial class Game : Form //inherits from From class
     {
         Snake snake = null;
         

@@ -12,22 +12,20 @@ namespace SnakeExperiments
     class Snake
     {
         private List<PictureBox> snakePixels = new List<PictureBox>();
-        private Form gameForm;
+        private Form game;
 
         public Snake(Form form)
         {
             InitializeSnake();
-            gameForm = form;
+            game = form;
         }
 
         private void InitializeSnake()
         {
-            AddPixel(200, 200);
-            AddPixel(220, 200);
-            AddPixel(240, 200);
-            AddPixel(240, 220);
-            AddPixel(240, 240);
-            AddPixel(240, 260);
+            for(int i = 1; i <= 1; i++)
+            {
+                AddPixel(40, i * 20);
+            }
         }
 
         public void AddPixel(int left, int top)
@@ -47,7 +45,7 @@ namespace SnakeExperiments
         {
             foreach(var sp in snakePixels)
             {
-                gameForm.Controls.Add(sp);
+                game.Controls.Add(sp);
             }
         }
     }
