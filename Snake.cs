@@ -12,7 +12,7 @@ namespace SnakeExperiments
 
     class Snake
     {
-        private List<PictureBox> snakePixels = new List<PictureBox>();
+        public List<PictureBox> snakePixels = new List<PictureBox>();
         private Form game;
 
         private int step = 20;

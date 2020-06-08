@@ -15,6 +15,8 @@ namespace SnakeExperiments
         private Snake snake = null;
         private Food food = null;
         private Timer mainTimer = null;
+
+        private Random rand = new Random();
         
         public Game()
         {
@@ -34,6 +36,7 @@ namespace SnakeExperiments
         private void MainTimer_Tick(object sender, EventArgs e)
         {
             snake.Move();
+            SnakeFoodCollision();
         }
 
         private void InitializeGame()
@@ -65,6 +68,21 @@ namespace SnakeExperiments
                     snake.ChangeDirection(270);
                     break;
             }
+        }
+
+        private void SnakeFoodCollision()
+        {
+            if (food.Bounds.IntersectsWith(snake.snakePixels[0].Bounds))
+            {
+                RegenerateFood();
+                mainTimer.Interval -= 20;
+            }
+        }
+
+        private void RegenerateFood()
+        {
+            food.Left = rand.Next(0, 20) * 20;
+            food.Top = rand.Next(0, 20) * 20;
         }
 
     }
