@@ -37,6 +37,8 @@ namespace SnakeExperiments
 
         private void InitializeGame()
         {
+            this.KeyDown += new KeyEventHandler(Game_KeyDown);
+
             snake = new Snake(this);
             snake.Render();
             snake.ChangeDirection(0);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,7 +28,7 @@ namespace SnakeExperiments
 
         private void InitializeSnake()
         {
-            for(int i = 1; i <= 1; i++)
+            for(int i = 1; i <= 10; i++)
             {
                 AddPixel(40, i * 20);
             }
@@ -81,8 +82,14 @@ namespace SnakeExperiments
 
         public void Move()
         {
+            //Move the tail
+            for(int i = snakePixels.Count - 1; i > 0; i--)
+            {
+                snakePixels[i].Location = snakePixels[i-1].Location;
+            }
+            //Move the head
             snakePixels[0].Left += horVelocity;
-            snakePixels[0].Top += verVelocity;  
+            snakePixels[0].Top += verVelocity;
         }
     }
 }
