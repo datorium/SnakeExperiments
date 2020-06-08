@@ -41,5 +41,25 @@ namespace SnakeExperiments
             snake.Render();
             snake.ChangeDirection(0);
         }
+
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Right:
+                    snake.ChangeDirection(0);
+                    break;
+                case Keys.Down:
+                    snake.ChangeDirection(90);
+                    break;
+                case Keys.Left:
+                    snake.ChangeDirection(180);
+                    break;
+                case Keys.Up:
+                    snake.ChangeDirection(270);
+                    break;
+            }
+        }
+
     }
 }
