@@ -79,10 +79,22 @@ namespace SnakeExperiments
             }
         }
 
+        private void SnakeFoodWholeBodyCollision()
+        {
+            foreach (var sp in snake.snakePixels)
+            {
+                if (food.Bounds.IntersectsWith(sp.Bounds))
+                {
+                    RegenerateFood();
+                }
+            }
+        }
+
         private void RegenerateFood()
         {
             food.Left = rand.Next(0, 20) * 20;
             food.Top = rand.Next(0, 20) * 20;
+            SnakeFoodWholeBodyCollision();
         }
 
     }
