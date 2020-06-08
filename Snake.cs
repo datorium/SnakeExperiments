@@ -15,7 +15,7 @@ namespace SnakeExperiments
         private List<PictureBox> snakePixels = new List<PictureBox>();
         private Form game;
 
-        private int speed = 20;
+        private int step = 20;
         private int horVelocity  = 0;
         private int verVelocity = 0;
         private int direction = 0; //0(right), 90(down), 180(left), 270(up)
@@ -47,7 +47,6 @@ namespace SnakeExperiments
             snakePixels.Add(sp);
         }
 
-
         public void Render()
         {
             foreach(var sp in snakePixels)
@@ -62,20 +61,20 @@ namespace SnakeExperiments
             switch (direction)
             {
                 case 0:
-                    horVelocity = speed;
+                    horVelocity = step;
                     verVelocity = 0;
                     break;
                 case 90:
                     horVelocity = 0;
-                    verVelocity = speed;
+                    verVelocity = step;
                     break;
                 case 180:
-                    horVelocity = -speed;
+                    horVelocity = -step;
                     verVelocity = 0;
                     break;
                 case 270:
                     horVelocity = 0;
-                    verVelocity = -speed;
+                    verVelocity = -step;
                     break;
             }
         }

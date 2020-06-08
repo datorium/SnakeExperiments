@@ -13,6 +13,7 @@ namespace SnakeExperiments
     public partial class Game : Form //inherits from From class
     {
         private Snake snake = null;
+        private Food food = null;
         private Timer mainTimer = null;
         
         public Game()
@@ -42,6 +43,9 @@ namespace SnakeExperiments
             snake = new Snake(this);
             snake.Render();
             snake.ChangeDirection(0);
+
+            food = new Food(this);
+            food.Render();
         }
 
         private void Game_KeyDown(object sender, KeyEventArgs e)
